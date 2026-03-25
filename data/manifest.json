@@ -1,0 +1,621 @@
+{
+  "generatedAt": "2026-03-21T02:11:16.561Z",
+  "sourceRepo": "https://github.com/w3c/aria-practices.git",
+  "sourceCommit": "a44ade58dfd392615da497cebdc4d745ef60a1e5",
+  "apgPatternsIndexUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/",
+  "patterns": [
+    {
+      "id": "accordion",
+      "title": "Accordion Pattern (Sections With Show/Hide Functionality)",
+      "markdownRelativePath": "patterns/accordion.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/",
+      "examples": [
+        {
+          "slug": "accordion",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/",
+          "bundleRelativePath": "bundles/accordion/accordion.json"
+        }
+      ]
+    },
+    {
+      "id": "alert",
+      "title": "Alert Pattern",
+      "markdownRelativePath": "patterns/alert.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/alert/",
+      "examples": [
+        {
+          "slug": "alert",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/alert/examples/alert/",
+          "bundleRelativePath": "bundles/alert/alert.json"
+        }
+      ]
+    },
+    {
+      "id": "alertdialog",
+      "title": "Alert and Message Dialogs Pattern",
+      "markdownRelativePath": "patterns/alertdialog.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/",
+      "examples": [
+        {
+          "slug": "alertdialog",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/examples/alertdialog/",
+          "bundleRelativePath": "bundles/alertdialog/alertdialog.json"
+        }
+      ]
+    },
+    {
+      "id": "breadcrumb",
+      "title": "Breadcrumb Pattern",
+      "markdownRelativePath": "patterns/breadcrumb.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/",
+      "examples": [
+        {
+          "slug": "breadcrumb",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/",
+          "bundleRelativePath": "bundles/breadcrumb/breadcrumb.json"
+        }
+      ]
+    },
+    {
+      "id": "button",
+      "title": "Button Pattern",
+      "markdownRelativePath": "patterns/button.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/button/",
+      "examples": [
+        {
+          "slug": "button",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/",
+          "bundleRelativePath": "bundles/button/button.json"
+        },
+        {
+          "slug": "button_idl",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button_idl/",
+          "bundleRelativePath": "bundles/button/button_idl.json"
+        }
+      ]
+    },
+    {
+      "id": "carousel",
+      "title": "Carousel (Slide Show or Image Rotator) Pattern",
+      "markdownRelativePath": "patterns/carousel.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/",
+      "examples": [
+        {
+          "slug": "carousel-1-prev-next",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-1-prev-next/",
+          "bundleRelativePath": "bundles/carousel/carousel-1-prev-next.json"
+        },
+        {
+          "slug": "carousel-2-tablist",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/examples/carousel-2-tablist/",
+          "bundleRelativePath": "bundles/carousel/carousel-2-tablist.json"
+        }
+      ]
+    },
+    {
+      "id": "checkbox",
+      "title": "Checkbox Pattern",
+      "markdownRelativePath": "patterns/checkbox.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/",
+      "examples": [
+        {
+          "slug": "checkbox-mixed",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/",
+          "bundleRelativePath": "bundles/checkbox/checkbox-mixed.json"
+        },
+        {
+          "slug": "checkbox",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox/",
+          "bundleRelativePath": "bundles/checkbox/checkbox.json"
+        }
+      ]
+    },
+    {
+      "id": "combobox",
+      "title": "Combobox Pattern",
+      "markdownRelativePath": "patterns/combobox.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/",
+      "examples": [
+        {
+          "slug": "combobox-autocomplete-both",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both/",
+          "bundleRelativePath": "bundles/combobox/combobox-autocomplete-both.json"
+        },
+        {
+          "slug": "combobox-autocomplete-list",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/",
+          "bundleRelativePath": "bundles/combobox/combobox-autocomplete-list.json"
+        },
+        {
+          "slug": "combobox-autocomplete-none",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-none/",
+          "bundleRelativePath": "bundles/combobox/combobox-autocomplete-none.json"
+        },
+        {
+          "slug": "combobox-datepicker",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/",
+          "bundleRelativePath": "bundles/combobox/combobox-datepicker.json"
+        },
+        {
+          "slug": "combobox-select-only",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/",
+          "bundleRelativePath": "bundles/combobox/combobox-select-only.json"
+        },
+        {
+          "slug": "grid-combo",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/grid-combo/",
+          "bundleRelativePath": "bundles/combobox/grid-combo.json"
+        }
+      ]
+    },
+    {
+      "id": "dialog-modal",
+      "title": "Dialog (Modal) Pattern",
+      "markdownRelativePath": "patterns/dialog-modal.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+      "examples": [
+        {
+          "slug": "datepicker-dialog",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/",
+          "bundleRelativePath": "bundles/dialog-modal/datepicker-dialog.json"
+        },
+        {
+          "slug": "dialog",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/",
+          "bundleRelativePath": "bundles/dialog-modal/dialog.json"
+        }
+      ]
+    },
+    {
+      "id": "disclosure",
+      "title": "Disclosure (Show/Hide) Pattern",
+      "markdownRelativePath": "patterns/disclosure.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/",
+      "examples": [
+        {
+          "slug": "disclosure-card",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-card/",
+          "bundleRelativePath": "bundles/disclosure/disclosure-card.json"
+        },
+        {
+          "slug": "disclosure-faq",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-faq/",
+          "bundleRelativePath": "bundles/disclosure/disclosure-faq.json"
+        },
+        {
+          "slug": "disclosure-image-description",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-image-description/",
+          "bundleRelativePath": "bundles/disclosure/disclosure-image-description.json"
+        },
+        {
+          "slug": "disclosure-navigation-hybrid",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation-hybrid/",
+          "bundleRelativePath": "bundles/disclosure/disclosure-navigation-hybrid.json"
+        },
+        {
+          "slug": "disclosure-navigation",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
+          "bundleRelativePath": "bundles/disclosure/disclosure-navigation.json"
+        }
+      ]
+    },
+    {
+      "id": "feed",
+      "title": "Feed Pattern",
+      "markdownRelativePath": "patterns/feed.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+      "examples": [
+        {
+          "slug": "feed-display",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed-display/",
+          "bundleRelativePath": "bundles/feed/feed-display.json"
+        },
+        {
+          "slug": "feed",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/",
+          "bundleRelativePath": "bundles/feed/feed.json"
+        }
+      ]
+    },
+    {
+      "id": "grid",
+      "title": "Grid (Interactive Tabular Data and Layout Containers) Pattern",
+      "markdownRelativePath": "patterns/grid.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+      "examples": [
+        {
+          "slug": "advanced-data-grid",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/advanced-data-grid/",
+          "bundleRelativePath": "bundles/grid/advanced-data-grid.json"
+        },
+        {
+          "slug": "data-grids",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/",
+          "bundleRelativePath": "bundles/grid/data-grids.json"
+        },
+        {
+          "slug": "layout-grids",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/layout-grids/",
+          "bundleRelativePath": "bundles/grid/layout-grids.json"
+        }
+      ]
+    },
+    {
+      "id": "landmarks",
+      "title": "Landmarks Pattern",
+      "markdownRelativePath": "patterns/landmarks.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/",
+      "examples": [
+        {
+          "slug": "HTML5",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5/",
+          "bundleRelativePath": "bundles/landmarks/HTML5.json"
+        },
+        {
+          "slug": "at",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/at/",
+          "bundleRelativePath": "bundles/landmarks/at.json"
+        },
+        {
+          "slug": "banner",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner/",
+          "bundleRelativePath": "bundles/landmarks/banner.json"
+        },
+        {
+          "slug": "complementary",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary/",
+          "bundleRelativePath": "bundles/landmarks/complementary.json"
+        },
+        {
+          "slug": "contentinfo",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/contentinfo/",
+          "bundleRelativePath": "bundles/landmarks/contentinfo.json"
+        },
+        {
+          "slug": "form",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/form/",
+          "bundleRelativePath": "bundles/landmarks/form.json"
+        },
+        {
+          "slug": "general-principles",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/general-principles/",
+          "bundleRelativePath": "bundles/landmarks/general-principles.json"
+        },
+        {
+          "slug": "main",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main/",
+          "bundleRelativePath": "bundles/landmarks/main.json"
+        },
+        {
+          "slug": "navigation",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation/",
+          "bundleRelativePath": "bundles/landmarks/navigation.json"
+        },
+        {
+          "slug": "region",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region/",
+          "bundleRelativePath": "bundles/landmarks/region.json"
+        },
+        {
+          "slug": "resources",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/resources/",
+          "bundleRelativePath": "bundles/landmarks/resources.json"
+        },
+        {
+          "slug": "search",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/search/",
+          "bundleRelativePath": "bundles/landmarks/search.json"
+        }
+      ]
+    },
+    {
+      "id": "link",
+      "title": "Link Pattern",
+      "markdownRelativePath": "patterns/link.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/link/",
+      "examples": [
+        {
+          "slug": "link",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/link/examples/link/",
+          "bundleRelativePath": "bundles/link/link.json"
+        }
+      ]
+    },
+    {
+      "id": "listbox",
+      "title": "Listbox Pattern",
+      "markdownRelativePath": "patterns/listbox.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/",
+      "examples": [
+        {
+          "slug": "listbox-collapsible",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-collapsible/",
+          "bundleRelativePath": "bundles/listbox/listbox-collapsible.json"
+        },
+        {
+          "slug": "listbox-grouped",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/",
+          "bundleRelativePath": "bundles/listbox/listbox-grouped.json"
+        },
+        {
+          "slug": "listbox-rearrangeable",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/",
+          "bundleRelativePath": "bundles/listbox/listbox-rearrangeable.json"
+        },
+        {
+          "slug": "listbox-scrollable",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-scrollable/",
+          "bundleRelativePath": "bundles/listbox/listbox-scrollable.json"
+        }
+      ]
+    },
+    {
+      "id": "menu-button",
+      "title": "Menu Button Pattern",
+      "markdownRelativePath": "patterns/menu-button.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/",
+      "examples": [
+        {
+          "slug": "menu-button-actions-active-descendant",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/",
+          "bundleRelativePath": "bundles/menu-button/menu-button-actions-active-descendant.json"
+        },
+        {
+          "slug": "menu-button-actions",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/",
+          "bundleRelativePath": "bundles/menu-button/menu-button-actions.json"
+        },
+        {
+          "slug": "menu-button-links",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-links/",
+          "bundleRelativePath": "bundles/menu-button/menu-button-links.json"
+        }
+      ]
+    },
+    {
+      "id": "menubar",
+      "title": "Menu and Menubar Pattern",
+      "markdownRelativePath": "patterns/menubar.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/",
+      "examples": [
+        {
+          "slug": "menubar-editor",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/",
+          "bundleRelativePath": "bundles/menubar/menubar-editor.json"
+        },
+        {
+          "slug": "menubar-navigation",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/",
+          "bundleRelativePath": "bundles/menubar/menubar-navigation.json"
+        }
+      ]
+    },
+    {
+      "id": "meter",
+      "title": "Meter Pattern",
+      "markdownRelativePath": "patterns/meter.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/",
+      "examples": [
+        {
+          "slug": "meter",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/meter/examples/meter/",
+          "bundleRelativePath": "bundles/meter/meter.json"
+        }
+      ]
+    },
+    {
+      "id": "radio",
+      "title": "Radio Group Pattern",
+      "markdownRelativePath": "patterns/radio.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/",
+      "examples": [
+        {
+          "slug": "radio-activedescendant",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-activedescendant/",
+          "bundleRelativePath": "bundles/radio/radio-activedescendant.json"
+        },
+        {
+          "slug": "radio-rating",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/",
+          "bundleRelativePath": "bundles/radio/radio-rating.json"
+        },
+        {
+          "slug": "radio",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/",
+          "bundleRelativePath": "bundles/radio/radio.json"
+        }
+      ]
+    },
+    {
+      "id": "slider",
+      "title": "Slider Pattern",
+      "markdownRelativePath": "patterns/slider.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/",
+      "examples": [
+        {
+          "slug": "slider-color-viewer",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-color-viewer/",
+          "bundleRelativePath": "bundles/slider/slider-color-viewer.json"
+        },
+        {
+          "slug": "slider-rating",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-rating/",
+          "bundleRelativePath": "bundles/slider/slider-rating.json"
+        },
+        {
+          "slug": "slider-seek",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-seek/",
+          "bundleRelativePath": "bundles/slider/slider-seek.json"
+        },
+        {
+          "slug": "slider-temperature",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/slider/examples/slider-temperature/",
+          "bundleRelativePath": "bundles/slider/slider-temperature.json"
+        }
+      ]
+    },
+    {
+      "id": "slider-multithumb",
+      "title": "Slider (Multi-Thumb) Pattern",
+      "markdownRelativePath": "patterns/slider-multithumb.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/",
+      "examples": [
+        {
+          "slug": "slider-multithumb",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/examples/slider-multithumb/",
+          "bundleRelativePath": "bundles/slider-multithumb/slider-multithumb.json"
+        }
+      ]
+    },
+    {
+      "id": "spinbutton",
+      "title": "Spinbutton Pattern",
+      "markdownRelativePath": "patterns/spinbutton.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/",
+      "examples": [
+        {
+          "slug": "datepicker-spinbuttons",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/datepicker-spinbuttons/",
+          "bundleRelativePath": "bundles/spinbutton/datepicker-spinbuttons.json"
+        },
+        {
+          "slug": "quantity-spinbutton",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/examples/quantity-spinbutton/",
+          "bundleRelativePath": "bundles/spinbutton/quantity-spinbutton.json"
+        }
+      ]
+    },
+    {
+      "id": "switch",
+      "title": "Switch Pattern",
+      "markdownRelativePath": "patterns/switch.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/",
+      "examples": [
+        {
+          "slug": "switch-button",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-button/",
+          "bundleRelativePath": "bundles/switch/switch-button.json"
+        },
+        {
+          "slug": "switch-checkbox",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch-checkbox/",
+          "bundleRelativePath": "bundles/switch/switch-checkbox.json"
+        },
+        {
+          "slug": "switch",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/switch/examples/switch/",
+          "bundleRelativePath": "bundles/switch/switch.json"
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "title": "Table Pattern",
+      "markdownRelativePath": "patterns/table.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/table/",
+      "examples": [
+        {
+          "slug": "sortable-table",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/",
+          "bundleRelativePath": "bundles/table/sortable-table.json"
+        },
+        {
+          "slug": "table",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/table/",
+          "bundleRelativePath": "bundles/table/table.json"
+        }
+      ]
+    },
+    {
+      "id": "tabs",
+      "title": "Tabs Pattern",
+      "markdownRelativePath": "patterns/tabs.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+      "examples": [
+        {
+          "slug": "tabs-actions",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-actions/",
+          "bundleRelativePath": "bundles/tabs/tabs-actions.json"
+        },
+        {
+          "slug": "tabs-automatic",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/",
+          "bundleRelativePath": "bundles/tabs/tabs-automatic.json"
+        },
+        {
+          "slug": "tabs-manual",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-manual/",
+          "bundleRelativePath": "bundles/tabs/tabs-manual.json"
+        }
+      ]
+    },
+    {
+      "id": "toolbar",
+      "title": "Toolbar Pattern",
+      "markdownRelativePath": "patterns/toolbar.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/",
+      "examples": [
+        {
+          "slug": "help",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/help/",
+          "bundleRelativePath": "bundles/toolbar/help.json"
+        },
+        {
+          "slug": "toolbar",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/",
+          "bundleRelativePath": "bundles/toolbar/toolbar.json"
+        }
+      ]
+    },
+    {
+      "id": "tooltip",
+      "title": "Tooltip Pattern",
+      "markdownRelativePath": "patterns/tooltip.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/",
+      "examples": []
+    },
+    {
+      "id": "treegrid",
+      "title": "Treegrid Pattern",
+      "markdownRelativePath": "patterns/treegrid.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/",
+      "examples": [
+        {
+          "slug": "treegrid-1",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/",
+          "bundleRelativePath": "bundles/treegrid/treegrid-1.json"
+        }
+      ]
+    },
+    {
+      "id": "treeview",
+      "title": "Tree View Pattern",
+      "markdownRelativePath": "patterns/treeview.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/",
+      "examples": [
+        {
+          "slug": "treeview-1a",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1a/",
+          "bundleRelativePath": "bundles/treeview/treeview-1a.json"
+        },
+        {
+          "slug": "treeview-1b",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-1b/",
+          "bundleRelativePath": "bundles/treeview/treeview-1b.json"
+        },
+        {
+          "slug": "treeview-navigation",
+          "liveExampleUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/",
+          "bundleRelativePath": "bundles/treeview/treeview-navigation.json"
+        }
+      ]
+    },
+    {
+      "id": "windowsplitter",
+      "title": "Window Splitter Pattern",
+      "markdownRelativePath": "patterns/windowsplitter.md",
+      "patternDocUrl": "https://www.w3.org/WAI/ARIA/apg/patterns/windowsplitter/",
+      "examples": []
+    }
+  ]
+}

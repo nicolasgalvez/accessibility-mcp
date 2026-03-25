@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.cache/
+.env
+*.log
+.DS_Store
+
+# Ollama embedding index (regenerate: npm run rag:index)
+data/rag/

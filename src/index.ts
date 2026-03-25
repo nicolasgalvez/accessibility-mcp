@@ -1,0 +1,12 @@
+export { ApgStore } from "./apg-store.js";
+export { createApgServer } from "./create-server.js";
+export type { ApgManifest, ApgPattern, ApgExampleBundle, ApgExampleSummary } from "./manifest-types.js";
+export { resolveDataDir } from "./paths.js";
+export { loadEnv } from "./config/load-env.js";
+export { getOllamaConfig, type OllamaConfig } from "./config/ollama.js";
+export { createChatOllama, createOllamaEmbeddings } from "./ollama/langchain.js";
+export { ensureOllamaModels, pullModel, modelIsPresent } from "./ollama/ensure-models.js";
+export { loadRagIndex, ragIndexPath, writeRagIndex } from "./rag/index-io.js";
+export { searchChunks, cosineSimilarity } from "./rag/similarity.js";
+export { chunkMarkdown, stripFrontmatter } from "./rag/chunk-md.js";
+export type { RagChunk, RagIndexFile, RagSearchHit } from "./rag/types.js";

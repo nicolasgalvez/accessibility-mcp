@@ -1,0 +1,50 @@
+{
+  "name": "accessibility-mcp",
+  "version": "1.0.0",
+  "description": "MCP server exposing WAI-ARIA APG patterns, requirements, and example source from w3c/aria-practices",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "accessibility-mcp": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "data"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "ingest": "tsx scripts/ingest.ts",
+    "rag:index": "tsx scripts/index-rag.ts",
+    "ollama:smoke": "tsx scripts/ollama-smoke.ts",
+    "prepack": "npm run build",
+    "start": "node dist/cli.js"
+  },
+  "keywords": [
+    "mcp",
+    "a11y",
+    "wai-aria",
+    "apg",
+    "accessibility"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/core": "^1.1.34",
+    "@langchain/ollama": "^1.2.6",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.3.1",
+    "fastmcp": "^3.34.0",
+    "turndown": "^7.2.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/turndown": "^5.0.6",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
