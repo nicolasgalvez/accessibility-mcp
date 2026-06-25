@@ -13,5 +13,6 @@ export function loadEnv(): void {
   loaded = true;
   const here = path.dirname(fileURLToPath(import.meta.url));
   const root = path.resolve(here, "..", "..");
-  dotenv.config({ path: path.join(root, ".env") });
+  /** `quiet` avoids printing to **stdout** — required for MCP stdio (JSON-RPC must own stdout). */
+  dotenv.config({ path: path.join(root, ".env"), quiet: true });
 }

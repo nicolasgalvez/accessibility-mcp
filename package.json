@@ -9,8 +9,12 @@
     "accessibility-mcp": "./dist/cli.js"
   },
   "files": [
+    "LICENSE",
     "dist",
-    "data"
+    "data/manifest.json",
+    "data/patterns",
+    "data/bundles",
+    "data/rag/chunks.json"
   ],
   "scripts": {
     "build": "tsc",
@@ -18,7 +22,15 @@
     "rag:index": "tsx scripts/index-rag.ts",
     "ollama:smoke": "tsx scripts/ollama-smoke.ts",
     "prepack": "npm run build",
+    "mcp:inspect": "mcp-inspector node dist/cli.js",
+    "mcp:try": "tsx scripts/mcp-client-demo.ts",
     "start": "node dist/cli.js",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:claude-mcp": "bash scripts/claude-mcp-smoke.sh",
+    "validate:data": "tsx scripts/eval-rag.ts --validate-only",
+    "eval:rag": "tsx scripts/eval-rag.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
@@ -45,6 +57,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@modelcontextprotocol/inspector": "^0.21.1",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "@types/node": "^25.5.0",
     "@types/turndown": "^5.0.6",
     "eslint": "^10.5.0",
@@ -54,7 +68,8 @@
     "prettier": "^3.8.4",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.62.0"
+    "typescript-eslint": "^8.62.0",
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=20"
