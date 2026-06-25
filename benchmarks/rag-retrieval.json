@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "description": "Hand-labeled queries for retrieval quality checks (expected APG pattern folder ids).",
+  "queries": [
+    {
+      "id": "carousel-auto",
+      "query": "image carousel automatic rotation pause stop button screen reader",
+      "expectedPatternIds": ["carousel"]
+    },
+    {
+      "id": "dialog-focus",
+      "query": "modal dialog keyboard focus trap escape closes",
+      "expectedPatternIds": ["dialog-modal"]
+    },
+    {
+      "id": "tabs-panel",
+      "query": "tab list selected tab panel arrow keys roving tabindex",
+      "expectedPatternIds": ["tabs"]
+    },
+    {
+      "id": "combobox-listbox",
+      "query": "combobox autocomplete listbox popup aria expanded",
+      "expectedPatternIds": ["combobox"]
+    },
+    {
+      "id": "tree-keyboard",
+      "query": "tree view expand collapse arrow keys parent child",
+      "expectedPatternIds": ["treeview"]
+    },
+    {
+      "id": "disclosure-show-hide",
+      "query": "disclosure widget button expand collapse content",
+      "expectedPatternIds": ["disclosure"]
+    },
+    {
+      "id": "grid-data",
+      "query": "data grid sortable columns row navigation",
+      "expectedPatternIds": ["grid"]
+    },
+    {
+      "id": "alert-live",
+      "query": "alert live region assertive polite message",
+      "expectedPatternIds": ["alert"]
+    },
+    {
+      "id": "breadcrumb-nav",
+      "query": "breadcrumb trail hierarchy current page navigation",
+      "expectedPatternIds": ["breadcrumb"]
+    },
+    {
+      "id": "slider-value",
+      "query": "slider thumb value range aria valuenow",
+      "expectedPatternIds": ["slider"]
+    },
+    {
+      "id": "menu-button",
+      "query": "menu button opens menu dropdown acts like button",
+      "expectedPatternIds": ["menu-button"]
+    },
+    {
+      "id": "accordion-sections",
+      "query": "accordion sections expand collapse one panel at a time",
+      "expectedPatternIds": ["accordion"]
+    }
+  ]
+}

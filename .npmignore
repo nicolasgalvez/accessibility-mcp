@@ -1,0 +1,4 @@
+# chunks.json is listed explicitly in package.json "files" (vendored RAG index).
+
+.env
+.env.local

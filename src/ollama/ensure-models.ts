@@ -6,7 +6,11 @@ function normalizeBaseUrl(url: string): string {
 
 type TagsResponse = { models?: { name: string }[] };
 
-function rethrowFetchFailure(baseUrl: string, url: string, err: unknown): never {
+function rethrowFetchFailure(
+  baseUrl: string,
+  url: string,
+  err: unknown,
+): never {
   const root = normalizeBaseUrl(baseUrl);
   const detail =
     err instanceof Error
@@ -27,7 +31,9 @@ async function fetchLocalModelNames(baseUrl: string): Promise<string[]> {
   }
   if (!res.ok) {
     const t = await res.text();
-    throw new Error(`Ollama ${url} failed (${res.status}): ${t || res.statusText}`);
+    throw new Error(
+      `Ollama ${url} failed (${res.status}): ${t || res.statusText}`,
+    );
   }
   const data = (await res.json()) as TagsResponse;
   return (data.models ?? []).map((m) => m.name);
@@ -65,7 +71,9 @@ export async function pullModel(
   }
   if (!res.ok) {
     const t = await res.text();
-    throw new Error(`Ollama pull ${name} failed (${res.status}): ${t || res.statusText}`);
+    throw new Error(
+      `Ollama pull ${name} failed (${res.status}): ${t || res.statusText}`,
+    );
   }
   if (!res.body) {
     throw new Error(`Ollama pull ${name}: empty response body`);
@@ -101,7 +109,10 @@ export async function pullModel(
 
   if (buffer.trim()) {
     try {
-      const obj = JSON.parse(buffer.trim()) as { status?: string; error?: string };
+      const obj = JSON.parse(buffer.trim()) as {
+        status?: string;
+        error?: string;
+      };
       if (obj.error) throw new Error(`Ollama pull ${name}: ${obj.error}`);
       if (obj.status) log(obj.status);
     } catch (e) {
@@ -116,31 +127,55 @@ function shouldSkipPull(): boolean {
   return v === "1" || v === "true" || v === "yes";
 }
 
+/** When false, routine lines are not sent to stderr — Claude Code logs any stderr as "error" in mcp-logs JSONL. */
+function ollamaVerbose(): boolean {
+  const v = process.env.OLLAMA_VERBOSE?.trim().toLowerCase();
+  return v === "1" || v === "true" || v === "yes";
+}
+
 /**
  * Ensures chat and embedding models from config exist locally; pulls missing ones via `/api/pull`.
  * Logs to `log` (default **stderr** via `console.error`) so MCP **stdout** stays clean for JSON-RPC.
+ * Routine success is silent unless **`OLLAMA_VERBOSE=1`** (avoids false `"error"` lines in Claude Code MCP logs).
  */
-export async function ensureOllamaModels(log: (message: string) => void = (m) => console.error(`[ollama] ${m}`)): Promise<void> {
+export async function ensureOllamaModels(
+  log: (message: string) => void = (m) => console.error(`[ollama] ${m}`),
+): Promise<void> {
   if (shouldSkipPull()) {
-    log("OLLAMA_SKIP_PULL set — skipping model pull");
+    if (ollamaVerbose()) {
+      log("OLLAMA_SKIP_PULL set — skipping model pull");
+    }
     return;
   }
 
   const cfg = getOllamaConfig();
-  const unique = Array.from(new Set([cfg.chatModel, cfg.embeddingModel]));
-  let local = await fetchLocalModelNames(cfg.baseUrl);
+  const pairs: { baseUrl: string; model: string }[] = [
+    { baseUrl: cfg.chatBaseUrl, model: cfg.chatModel },
+    { baseUrl: cfg.embeddingBaseUrl, model: cfg.embeddingModel },
+  ];
+  const seen = new Set<string>();
+  for (const { baseUrl, model } of pairs) {
+    const key = `${normalizeBaseUrl(baseUrl)}\0${model}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
 
-  for (const model of unique) {
+    let local = await fetchLocalModelNames(baseUrl);
     if (modelIsPresent(local, model)) {
-      log(`model ready: ${model}`);
+      if (ollamaVerbose()) {
+        log(`model ready: ${model} @ ${normalizeBaseUrl(baseUrl)}`);
+      }
       continue;
     }
-    log(`pulling model: ${model} (this may take a while)…`);
-    await pullModel(cfg.baseUrl, model, log);
+    log(
+      `pulling model: ${model} @ ${normalizeBaseUrl(baseUrl)} (this may take a while)…`,
+    );
+    await pullModel(baseUrl, model, log);
     log(`pull complete: ${model}`);
-    local = await fetchLocalModelNames(cfg.baseUrl);
+    local = await fetchLocalModelNames(baseUrl);
     if (!modelIsPresent(local, model)) {
-      throw new Error(`Ollama pull finished but model still missing: ${model}`);
+      throw new Error(
+        `Ollama pull finished but model still missing: ${model} @ ${normalizeBaseUrl(baseUrl)}`,
+      );
     }
   }
 }

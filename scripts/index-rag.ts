@@ -16,8 +16,16 @@ import { writeRagIndex } from "../src/rag/index-io.ts";
 import type { ApgManifest } from "../src/manifest-types.ts";
 import type { RagChunk, RagIndexFile } from "../src/rag/types.ts";
 
-const EXAMPLE_BLOB_MAX = 12_000;
+/** Example bundle text cap before the example header (must fit embedding model context). */
+const EXAMPLE_BLOB_MAX = 6000;
+/** Hard cap per chunk sent to Ollama embed (chars). Keeps under typical small embedding contexts. */
+const MAX_EMBED_CHARS = 4096;
 const EMBED_BATCH = 8;
+
+function clipForEmbed(text: string): string {
+  if (text.length <= MAX_EMBED_CHARS) return text;
+  return `${text.slice(0, MAX_EMBED_CHARS)}\n\n[…truncated for embedding…]`;
+}
 
 type Pending = {
   id: string;
@@ -31,7 +39,9 @@ async function main(): Promise<void> {
   await ensureOllamaModels((m) => console.error(`[rag:index] ${m}`));
   const dataDir = resolveDataDir();
   const manifestPath = path.join(dataDir, "manifest.json");
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as ApgManifest;
+  const manifest = JSON.parse(
+    fs.readFileSync(manifestPath, "utf8"),
+  ) as ApgManifest;
 
   const pending: Pending[] = [];
 
@@ -39,13 +49,13 @@ async function main(): Promise<void> {
     const mdPath = path.join(dataDir, p.markdownRelativePath);
     if (!fs.existsSync(mdPath)) continue;
     const md = fs.readFileSync(mdPath, "utf8");
-    const parts = chunkMarkdown(md);
+    const parts = chunkMarkdown(md, 1200);
     parts.forEach((text, i) => {
       pending.push({
         id: `pattern:${p.id}:doc:${i}`,
         patternId: p.id,
         kind: "pattern",
-        text,
+        text: clipForEmbed(text),
       });
     });
 
@@ -53,7 +63,11 @@ async function main(): Promise<void> {
       const bundlePath = path.join(dataDir, ex.bundleRelativePath);
       if (!fs.existsSync(bundlePath)) continue;
       const bundle = JSON.parse(fs.readFileSync(bundlePath, "utf8")) as {
-        files?: Array<{ relativePath?: string; text?: string; omitted?: boolean }>;
+        files?: Array<{
+          relativePath?: string;
+          text?: string;
+          omitted?: boolean;
+        }>;
       };
       const lines: string[] = [];
       for (const f of bundle.files ?? []) {
@@ -62,12 +76,15 @@ async function main(): Promise<void> {
       }
       const blob = lines.join("\n\n").slice(0, EXAMPLE_BLOB_MAX).trim();
       if (blob.length < 80) continue;
+      const exampleText = clipForEmbed(
+        `Example \`${ex.slug}\` (pattern \`${p.id}\`):\n\n${blob}`,
+      );
       pending.push({
         id: `pattern:${p.id}:example:${ex.slug}`,
         patternId: p.id,
         kind: "example",
         exampleSlug: ex.slug,
-        text: `Example \`${ex.slug}\` (pattern \`${p.id}\`):\n\n${blob}`,
+        text: exampleText,
       });
     }
   }
@@ -77,17 +94,21 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  const emb = createOllamaEmbeddings();
+  const emb = createOllamaEmbeddings({ truncate: true });
   const cfg = getOllamaConfig();
   const chunks: RagChunk[] = [];
 
   for (let i = 0; i < pending.length; i += EMBED_BATCH) {
     const batch = pending.slice(i, i + EMBED_BATCH);
     const texts = batch.map((b) => b.text);
-    process.stderr.write(`[rag:index] embedding ${i + 1}–${i + batch.length} / ${pending.length}\n`);
+    process.stderr.write(
+      `[rag:index] embedding ${i + 1}–${i + batch.length} / ${pending.length}\n`,
+    );
     const vectors = await emb.embedDocuments(texts);
     if (vectors.length !== batch.length) {
-      throw new Error(`embedDocuments length mismatch: got ${vectors.length}, expected ${batch.length}`);
+      throw new Error(
+        `embedDocuments length mismatch: got ${vectors.length}, expected ${batch.length}`,
+      );
     }
     for (let j = 0; j < batch.length; j++) {
       const b = batch[j]!;
@@ -112,7 +133,9 @@ async function main(): Promise<void> {
   };
 
   writeRagIndex(dataDir, index);
-  console.error(`[rag:index] wrote ${chunks.length} chunks → data/rag/chunks.json (model ${cfg.embeddingModel})`);
+  console.error(
+    `[rag:index] wrote ${chunks.length} chunks → data/rag/chunks.json (model ${cfg.embeddingModel})`,
+  );
 }
 
 main().catch((e) => {
